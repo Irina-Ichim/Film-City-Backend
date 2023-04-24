@@ -21,7 +21,7 @@ class MovieController(private val movieRepository: MovieRepository) {
 
     @PostMapping("/jurassic-park")
     fun addJurassicPark(): ContenedorPeli {
-        val jurassicPark = ContenedorPeli(
+        var jurassicPark = ContenedorPeli(
             title = "Jurassic Park",
             director = "Steven Spielberg",
             releaseYear = 1993
@@ -31,7 +31,7 @@ class MovieController(private val movieRepository: MovieRepository) {
 
     @PostMapping("/ratatouille")
     fun addRatatouille(): ContenedorPeli {
-        val ratatouille = ContenedorPeli(
+        var ratatouille = ContenedorPeli(
             title = "Ratatouille",
             director = "Brad Bird",
             releaseYear = 2007
