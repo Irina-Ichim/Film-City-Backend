@@ -1,4 +1,7 @@
-import com.example.filmcity.repositories.com.example.filmcity.repositories.ContenedorPeli
+package com.example.filmcity.controllers
+
+
+import com.example.filmcity.repositories.ContenedorPeli
 import com.example.filmcity.repositories.MovieRepository
 import org.springframework.web.bind.annotation.*
 
@@ -12,32 +15,32 @@ class MovieController(private val movieRepository: MovieRepository) {
     }
 
 
-
-
-    @PostMapping
-    fun addMovie(@RequestBody contenedorPeli: ContenedorPeli): ContenedorPeli {
-        return movieRepository.save(contenedorPeli)
-    }
-
-    @PostMapping("/jurassic-park")
-    fun addJurassicPark(): ContenedorPeli {
-        var jurassicPark = ContenedorPeli(
-            title = "Jurassic Park",
-            director = "Steven Spielberg",
-            releaseYear = 1993
-        )
-        return movieRepository.save(jurassicPark)
-    }
-
-    @PostMapping("/ratatouille")
-    fun addRatatouille(): ContenedorPeli {
-        var ratatouille = ContenedorPeli(
-            title = "Ratatouille",
-            director = "Brad Bird",
-            releaseYear = 2007
-        )
-        return movieRepository.save(ratatouille)
-    }
+//
+//
+//    @PostMapping
+//    fun addMovie(@RequestBody contenedorPeli: ContenedorPeli): ContenedorPeli {
+//        return movieRepository.save(contenedorPeli)
+//    }
+//
+//    @PostMapping("/jurassic-park")
+//    fun addJurassicPark(): ContenedorPeli {
+//        var jurassicPark = ContenedorPeli(
+//            title = "Jurassic Park",
+//            director = "Steven Spielberg",
+//            releaseYear = 1993
+//        )
+//        return movieRepository.save(jurassicPark)
+//    }
+//
+//    @PostMapping("/ratatouille")
+//    fun addRatatouille(): ContenedorPeli {
+//        var ratatouille = ContenedorPeli(
+//            title = "Ratatouille",
+//            director = "Brad Bird",
+//            releaseYear = 2007
+//        )
+//        return movieRepository.save(ratatouille)
+//    }
 }
 
 

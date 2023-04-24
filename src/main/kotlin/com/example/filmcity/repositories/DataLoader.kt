@@ -1,6 +1,5 @@
 package com.example.filmcity.repositories
 
-import com.example.filmcity.repositories.com.example.filmcity.repositories.ContenedorPeli
 import org.springframework.stereotype.Component
 import javax.annotation.PostConstruct
 
@@ -11,8 +10,8 @@ class DataLoader(private val movieRepository: MovieRepository) {
     @PostConstruct
     fun load() {
         val peliculas = listOf(
-                ContenedorPeli(title = "Jurassic Park", director = "Steven Spielberg", releaseYear = 1993),
-                ContenedorPeli(title = "Ratatouille", director = "Brad Bird", releaseYear = 2007)
+                ContenedorPeli(titulo = "Jurassic Park", director = "Steven Spielberg", releaseYear = 1993),
+                ContenedorPeli(titulo = "Ratatouille", director = "Brad Bird", releaseYear = 2007)
         )
         movieRepository.saveAll(peliculas)
         println("Cargamos datos de prueba cuando arrancamos el servidor: $peliculas")
