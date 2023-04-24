@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*
 @RestController
 class MovieController(private val movieRepository: MovieRepository) {
 
-    @GetMapping("/Peliculas")
+    @GetMapping("/peliculas")
     fun getMovies(): List<ContenedorPeli> {
         return movieRepository.findAll()
     }
