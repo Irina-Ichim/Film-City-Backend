@@ -1,8 +1,10 @@
+
+
 package com.example.filmcity.repositories
 
+import com.example.filmcity.repositories.com.example.filmcity.repositories.Movie
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
-
 @Repository
-interface MovieRepository: JpaRepository<Movie, Long>
+interface MovieRepository : JpaRepository<Movie, Long>

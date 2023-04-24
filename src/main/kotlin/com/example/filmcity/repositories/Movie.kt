@@ -1,21 +1,24 @@
-package com.example.filmcity.repositories
+package com.example.filmcity.repositories.com.example.filmcity.repositories
 
-import jakarta.persistence.*
+import javax.persistence.*
 
-@Table(name = "movies")
 @Entity
+@Table(name = "movies")
 data class Movie(
-        var title: String,
-        //var coverImage: String,
-        //var director: String,
-        //var year: Int,
-        //var synopsis: String,
-
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "id", nullable = false)
-        var id: Long? = null
+        val id: Long? = null,
+        val title: String,
+        val director: String,
+        @Column(name = "release_year")
+        val releaseYear: Int
 )
+
+
+
+
+
+
 
 
 
