@@ -22,15 +22,15 @@ class MovieController(private val movieRepository: MovieRepository) {
 //        return movieRepository.save(contenedorPeli)
 //    }
 //
-//    @PostMapping("/jurassic-park")
-//    fun addJurassicPark(): ContenedorPeli {
-//        var jurassicPark = ContenedorPeli(
-//            title = "Jurassic Park",
-//            director = "Steven Spielberg",
-//            releaseYear = 1993
-//        )
-//        return movieRepository.save(jurassicPark)
-//    }
+    @PostMapping("/jurassic-park")
+    fun addJurassicPark(): ContenedorPeli {
+        val jurassicPark = ContenedorPeli(
+            titulo = "Jurassic Park",
+            director = "Steven Spielberg",
+            releaseYear = 1993
+        )
+        return movieRepository.save(jurassicPark)
+    }
 //
 //    @PostMapping("/ratatouille")
 //    fun addRatatouille(): ContenedorPeli {
