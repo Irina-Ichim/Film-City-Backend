@@ -1,4 +1,4 @@
-import com.example.filmcity.repositories.com.example.filmcity.repositories.Movie
+import com.example.filmcity.repositories.com.example.filmcity.repositories.ContenedorPeli
 import com.example.filmcity.repositories.MovieRepository
 import org.springframework.web.bind.annotation.*
 
@@ -6,24 +6,22 @@ import org.springframework.web.bind.annotation.*
 @RestController
 class MovieController(private val movieRepository: MovieRepository) {
 
-    @GetMapping("movie")
-    fun getMovies(): List<Movie> {
+    @GetMapping("/Peliculas")
+    fun getMovies(): List<ContenedorPeli> {
         return movieRepository.findAll()
     }
 
-    @GetMapping("hola")
-    fun sayhi(): String {
-        return "Hola a todos "
-    }
+
+
 
     @PostMapping
-    fun addMovie(@RequestBody movie: Movie): Movie {
-        return movieRepository.save(movie)
+    fun addMovie(@RequestBody contenedorPeli: ContenedorPeli): ContenedorPeli {
+        return movieRepository.save(contenedorPeli)
     }
 
     @PostMapping("/jurassic-park")
-    fun addJurassicPark(): Movie {
-        val jurassicPark = Movie(
+    fun addJurassicPark(): ContenedorPeli {
+        val jurassicPark = ContenedorPeli(
             title = "Jurassic Park",
             director = "Steven Spielberg",
             releaseYear = 1993
@@ -32,8 +30,8 @@ class MovieController(private val movieRepository: MovieRepository) {
     }
 
     @PostMapping("/ratatouille")
-    fun addRatatouille(): Movie {
-        val ratatouille = Movie(
+    fun addRatatouille(): ContenedorPeli {
+        val ratatouille = ContenedorPeli(
             title = "Ratatouille",
             director = "Brad Bird",
             releaseYear = 2007

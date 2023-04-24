@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component
   class DataLoader(private val movieRepository: MovieRepository) : CommandLineRunner {
 
       override fun run(vararg args: String?) {
-          val movies = listOf(
-                  Movie(title = "Jurassic Park", director = "Steven Spielberg", releaseYear = 1993),
-                  Movie(title = "Ratatouille", director = "Brad Bird", releaseYear = 2007)
+          var contenedorPelis = listOf(
+                  ContenedorPeli(title = "Jurassic Park", director = "Steven Spielberg", releaseYear = 1993),
+                  ContenedorPeli(title = "Ratatouille", director = "Brad Bird", releaseYear = 2007)
           )
-          movieRepository.saveAll(movies)
+          movieRepository.saveAll(contenedorPelis)
       }
   }
 
