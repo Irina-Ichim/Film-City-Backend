@@ -4,10 +4,9 @@ import org.springframework.web.bind.annotation.*
 
 
     @RestController
-    @RequestMapping("/movie")
     class MovieController(private val movieRepository: MovieRepository) {
 
-        @GetMapping
+        @GetMapping("")
         fun getMovies(): List<Movie> {
             return movieRepository.findAll()
         }
