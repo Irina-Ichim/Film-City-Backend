@@ -49,7 +49,7 @@ class MovieController(private val movieRepository: MovieRepository) {
     }
 
 @ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "movie not found")
-class MovieNotFoundException : RuntimeException()}
+class MovieNotFoundException : RuntimeException()
 
 
 
