@@ -28,8 +28,9 @@ class MovieController(private val movieRepository: MovieRepository) {
 
     @GetMapping("/peliculas/{id}")
     fun findMovie(@PathVariable id: Long): ContenedorPeli? {
-        return movieRepository.findById(id).orElseThrow { MovieNotFoundException()
-        }
+        return movieRepository.findById(id).orElseThrow { MovieNotFoundException() }
+    }
+
 
 
     @DeleteMapping("/peliculas/{id}")
