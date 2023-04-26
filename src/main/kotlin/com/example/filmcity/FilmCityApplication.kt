@@ -9,3 +9,4 @@ class FilmCityApplication
 fun main(args: Array<String>) {
     runApplication<FilmCityApplication>(*args)
 }
+
