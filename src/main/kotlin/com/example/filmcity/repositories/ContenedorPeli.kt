@@ -11,6 +11,7 @@ data class ContenedorPeli(
         val titulo: String,
         val director: String,
         val releaseYear: Int,
+        val synopsis: String,
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -10,8 +10,8 @@ class DataLoader(private val movieRepository: MovieRepository) {
     @PostConstruct
     fun load() {
         val peliculas = listOf(
-                ContenedorPeli(titulo = "Jurassic Park", director = "Steven Spielberg", releaseYear = 1993),
-                ContenedorPeli(titulo = "Ratatouille", director = "Brad Bird", releaseYear = 2007)
+                ContenedorPeli(titulo = "Jurassic Park", director = "Steven Spielberg", releaseYear = 1993, synopsis = "Blablablabla"),
+                ContenedorPeli(titulo = "Ratatouille", director = "Brad Bird", releaseYear = 2007, synopsis = "Blablablabla")
         )
         movieRepository.saveAll(peliculas)
         println("Cargamos datos de prueba cuando arrancamos el servidor: $peliculas")
