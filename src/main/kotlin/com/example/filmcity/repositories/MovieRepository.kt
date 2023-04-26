@@ -5,3 +5,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface MovieRepository : JpaRepository<ContenedorPeli, Long>
+
+

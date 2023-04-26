@@ -2,16 +2,20 @@ package com.example.filmcity.repositories
 
 import javax.persistence.*
 
-@Entity
+
+
+
 @Table(name = "Peliculas")
+@Entity
 data class ContenedorPeli(
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        val id: Long? = null,
         val titulo: String,
         val director: String,
-        @Column(name = "releaseYear")
         val releaseYear: Int,
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "id", nullable = false)
+        var id: Long? = null
 )
 
 
