@@ -18,10 +18,10 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
 
 @SpringBootTest(
-    classes = arrayOf(com.example.filmcity::class),
+    classes = arrayOf(FilmCityApplication::class),
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-class com.example.filmcity(@Autowired val mockMvc: MockMvc) {
+class FilmCityApplication(@Autowired val mockMvc: MockMvc) {
 
     @Autowired
     private lateinit var movieRepository: MovieRepository
@@ -68,11 +68,13 @@ class com.example.filmcity(@Autowired val mockMvc: MockMvc) {
     @Test
     @Throws(Exception::class)
     fun `allows to find a coder by id`() {
-        val movie: ContenedorPeli = movieRepository.save(ContenedorPeli("Jurassic Park", "Steven Spielberg"))
+        val movie: ContenedorPeli = movieRepository.save(ContenedorPeli("Jurassic Park", "Steven Spielberg", 1993, "Blablablabla"))
         mockMvc.perform(get("/peliculas/" + movie.id))
             .andExpect(status().isOk)
             .andExpect(jsonPath("$.titulo", equalTo("Jurassic Park")))
             .andExpect(jsonPath("$.director", equalTo("Steven Spielberg")))
+            .andExpect(jsonPath("$.releaseYear", equalTo(1993)))
+            .andExpect(jsonPath("$.synopsis", equalTo("Blablablabla")))
     }
 
     @Test
@@ -85,7 +87,7 @@ class com.example.filmcity(@Autowired val mockMvc: MockMvc) {
     @Test
     @Throws(Exception::class)
     fun `allows to delete a coder by id`() {
-        val movie: ContenedorPeli = movieRepository.save(ContenedorPeli("Jurassic Park", "Steven Spielberg"))
+        val movie: ContenedorPeli = movieRepository.save(ContenedorPeli("Jurassic Park", "Steven Spielberg", 1993, "Blablablabla"))
         mockMvc.perform(delete("/peliculas/" + movie.id))
             .andExpect(status().isOk)
         val movies: List<ContenedorPeli> = movieRepository.findAll()
@@ -95,6 +97,7 @@ class com.example.filmcity(@Autowired val mockMvc: MockMvc) {
                     allOf(
                         hasProperty("titulo", `is`("Jurassic Park")),
                         hasProperty("director", `is`("Steven Spielberg"))
+
                     )
                 )
             )
@@ -112,7 +115,7 @@ class com.example.filmcity(@Autowired val mockMvc: MockMvc) {
     @Test
     @Throws(Exception::class)
     fun `allows to modify a movie`() {
-        val movie: ContenedorPeli = movieRepository.save(ContenedorPeli("Jurassic Park", "Steven Spielberg"))
+        val movie: ContenedorPeli = movieRepository.save(ContenedorPeli("Jurassic Park", "Steven Spielberg", 1993, "Blablablabla"))
         mockMvc.perform(
             put("/peliculas")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -137,8 +140,8 @@ class com.example.filmcity(@Autowired val mockMvc: MockMvc) {
 
     private fun addTestMovies() {
         val movies: List<ContenedorPeli> = listOf(
-            ContenedorPeli("Jurassic Park", "Steven Spielberg"),
-            ContenedorPeli("Ratatouille", "Brad Bird"),
+            ContenedorPeli("Jurassic Park", "Steven Spielberg", 1993, "Blablablabla"),
+            ContenedorPeli("Ratatouille", "Brad Bird",2007, "Blablablabla"),
            // Coder("Daniela", "Python")
         )
         movies.forEach(movieRepository::save)
