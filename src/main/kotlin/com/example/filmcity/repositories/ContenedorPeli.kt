@@ -1,8 +1,5 @@
 package com.example.filmcity.repositories
 
-import javax.persistence.*
-
-
 
 
 @Table(name = "Peliculas")
