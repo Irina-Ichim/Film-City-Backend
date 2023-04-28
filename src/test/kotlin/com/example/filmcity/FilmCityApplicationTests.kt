@@ -18,10 +18,10 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
 
 @SpringBootTest(
-    classes = arrayOf(FilmCityApplication::class),
+    classes = arrayOf(FilmCityApplicationTests::class),
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-class FilmCityApplication(@Autowired val mockMvc: MockMvc) {
+class FilmCityApplicationTests(@Autowired val mockMvc: MockMvc) {
 
     @Autowired
     private lateinit var movieRepository: MovieRepository
