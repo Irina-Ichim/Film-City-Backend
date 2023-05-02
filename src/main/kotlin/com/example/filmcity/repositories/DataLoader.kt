@@ -1,7 +1,8 @@
 package com.example.filmcity.repositories
 
+import jakarta.annotation.PostConstruct
 import org.springframework.stereotype.Component
-import javax.annotation.PostConstruct
+
 
 
 
