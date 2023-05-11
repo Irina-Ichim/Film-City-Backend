@@ -2,8 +2,6 @@ package com.example.filmcity.repositories
 
 import jakarta.persistence.*
 
-
-
 @Table(name = "Peliculas")
 @Entity
 data class ContenedorPeli(

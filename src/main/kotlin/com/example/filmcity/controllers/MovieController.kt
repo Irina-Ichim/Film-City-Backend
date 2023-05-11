@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*
 class MovieController(private val movieRepository: MovieRepository) {
 
     @GetMapping("/peliculas")
-    fun getMovies(): List<ContenedorPeli> {
+    fun allMovies(): List<ContenedorPeli?>? {
         return movieRepository.findAll()
         }
 
