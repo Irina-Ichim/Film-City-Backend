@@ -24,11 +24,15 @@ class MovieController(private val movieRepository: MovieRepository) {
     }
 
     @DeleteMapping("/peliculas/{id}")
-    fun deleteMovieById(@PathVariable id: Long): ContenedorPeli? {
-        val movie: ContenedorPeli = movieRepository.findById(id).orElseThrow { MovieNotFoundException() }
-        movieRepository.deleteById(id)
-        return movie
+    fun deleteMovieById(@PathVariable id: Long?): ContenedorPeli? {
+        id?.let {
+            val movie: ContenedorPeli = movieRepository.findById(it).orElseThrow { MovieNotFoundException() }
+            movieRepository.deleteById(it)
+            return movie
+        }
+        return null
     }
+
 
     @PutMapping("/peliculas/{id}")
     fun updateMovieById(@PathVariable id: Long, @RequestBody contenedorPeli: ContenedorPeli): ContenedorPeli? {

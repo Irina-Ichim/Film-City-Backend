@@ -14,6 +14,8 @@ import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+import org.junit.jupiter.api.Assertions.assertFalse
+
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -160,4 +162,38 @@ class FilmCityApplicationTests(@Autowired val mockMvc: MockMvc) {
                 )
             )
     }
+    @Test
+    @Throws(Exception::class)
+    fun `deletes a movie by ID using DELETE request`() {
+        // Creamos una película para probar el borrado
+        val newMovie = ContenedorPeli(
+            titulo = "Inception",
+            director = "Christopher Nolan",
+            releaseYear = 2010,
+            synopsis = "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O."
+        )
+
+        // Guardamos la película en la base de datos y obtenemos su ID
+        val savedPelicula = movieRepository.save(newMovie)
+
+        mockMvc.perform(
+            delete("/peliculas/${savedPelicula.id!!}") // Conversión explícita a Long no nullable
+        )
+            .andExpect(status().isOk)
+            .andExpect(jsonPath("$.titulo", equalTo("Inception")))
+            .andExpect(jsonPath("$.director", equalTo("Christopher Nolan")))
+            .andExpect(jsonPath("$.releaseYear", equalTo(2010)))
+            .andExpect(
+                jsonPath(
+                    "$.synopsis",
+                    equalTo("A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.")
+                )
+            )
+
+        // Asegurarnos de que la película se ha eliminado de la base de datos
+        assertFalse(movieRepository.existsById(savedPelicula.id!!)) // Conversión explícita a Long no nullable
+    }
+
+
+
 }
