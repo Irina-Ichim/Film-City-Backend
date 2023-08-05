@@ -30,17 +30,16 @@ class MovieController(private val movieRepository: MovieRepository) {
         return movie
     }
 
-    @PutMapping("/peliculas")
-    fun updateMovieById(@RequestBody contenedorPeli: ContenedorPeli): ContenedorPeli? {
-        contenedorPeli.id?.let {
-            if (movieRepository.existsById(it)) {
-                return movieRepository.save(contenedorPeli)
-            } else {
-                throw MovieNotFoundException()
-            }
+    @PutMapping("/peliculas/{id}")
+    fun updateMovieById(@PathVariable id: Long, @RequestBody contenedorPeli: ContenedorPeli): ContenedorPeli? {
+        contenedorPeli.id = id // Establecer el ID en el objeto contenedorPeli recibido del cuerpo de la solicitud
+        if (movieRepository.existsById(id)) {
+            return movieRepository.save(contenedorPeli)
+        } else {
+            throw MovieNotFoundException()
         }
-        return null
     }
+
 }
 
 @ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "movie not found")
