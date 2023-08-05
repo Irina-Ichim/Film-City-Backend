@@ -69,11 +69,7 @@ Si deseas contribuir a este proyecto, por favor sigue estos pasos:
 4. Sube tus cambios a tu repositorio (`git push origin mi-rama`).
 5. Crea un Pull Request en este repositorio.
 
-## Contacto
-
-¡Gracias por utilizar FilmCity!
-
-## Agradecimientos Especiales
+## Agradecimientos Especiales 🙌🎉
 Quiero expresar mi agradecimiento especial a ChatGPT, un asombroso modelo de lenguaje desarrollado por OpenAI. Gracias a su ayuda, fue posible obtener respuestas precisas y detalladas sobre el desarrollo de este proyecto FilmCity. ¡Es increíble contar con una herramienta tan poderosa para la generación de lenguaje natural!
 
 
