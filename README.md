@@ -74,4 +74,4 @@ Si deseas contribuir a este proyecto, por favor sigue estos pasos:
 Quiero expresar mi agradecimiento especial a ChatGPT, un asombroso modelo de lenguaje desarrollado por OpenAI. Gracias a su ayuda, fue posible obtener respuestas precisas y detalladas sobre el desarrollo de este proyecto FilmCity. ¡Es increíble contar con una herramienta tan poderosa para la generación de lenguaje natural!
 
 
->>>>>>> 1222821f1ca7f86fcf1368d98595f47617328979
+
