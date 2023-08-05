@@ -4,6 +4,12 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface MovieRepository : JpaRepository<ContenedorPeli, Long>
+interface MovieRepository : JpaRepository<ContenedorPeli, Long> {
+    companion object {
+        fun saveAll(peliculas: List<ContenedorPeli>) {
+
+        }
+    }
+}
 
 
